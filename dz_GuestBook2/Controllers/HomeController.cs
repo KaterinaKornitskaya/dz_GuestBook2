@@ -8,13 +8,6 @@ namespace dz_GuestBook2.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
         private readonly IMesRepository _rep;
 
         public HomeController(IMesRepository rep)
@@ -24,19 +17,9 @@ namespace dz_GuestBook2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //if (HttpContext.Session.GetString("Name") != null)
-            //    return View();
-            //else
-            //    return RedirectToAction("Login", "Account");
-
             var rep1 = _rep.GetAllMessages();
-            
-            
+                       
             return View(await rep1);
-
-
-            //return _repository.GetAllMessages();
-            //return View(_repository.GetAllMessages());
         }
 
         public ActionResult Logout()
